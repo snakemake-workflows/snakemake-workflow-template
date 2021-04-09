@@ -5,3 +5,5 @@ To generate a new structure using this template, run
     copier gh:snakemake-workflows/snakemake-workflow-template <path>
 
 with path pointing to the desired output directory.
+
+You will get the following structure:
