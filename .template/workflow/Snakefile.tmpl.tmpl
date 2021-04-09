@@ -1,0 +1,10 @@
+configfile: "config/config.yaml"
+
+module [[ module_name ]]:
+    snakefile:
+        # TODO replace <release> with desired release
+        "https://github.com/[[ owner ]]/[[ repo ]]/raw/<release>/Snakefile"
+    config:
+        config
+
+use rule * from [[ module_name ]]
