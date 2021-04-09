@@ -1,4 +1,4 @@
-# Snakemake workflow: {{repo}}
+# Snakemake workflow: [[ repo ]]
 
 [![Snakemake](https://img.shields.io/badge/snakemake-≥6.1.0-brightgreen.svg)](https://snakemake.github.io)
 [![GitHub actions status](https://github.com/snakemake-workflows/dna-seq-gatk-variant-calling/workflows/Tests/badge.svg?branch=master)](https://github.com/snakemake-workflows/dna-seq-gatk-variant-calling/actions?query=branch%3Amaster+workflow%3ATests)
@@ -30,13 +30,13 @@ configfile: "config/config.yaml"
 
 module dna_seq_gatk:
     snakefile:
-        "https://github.com/{{owner}}/{{repo}}/raw/<release>/Snakefile"
+        "https://github.com/[[ owner ]]/[[ repo ]]/raw/<release>/Snakefile"
     config:
         config
 
 use rule * from dna_seq_gatk
 ```
-while replacing `<release>` with the [latest stable release](https://github.com/{{owner}}/{{repo}}/releases).
+while replacing `<release>` with the [latest stable release](https://github.com/[[ owner ]]/[[ repo ]]/releases).
 See [here](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#using-and-combining-pre-exising-workflows) for advanced options.
 
 At first sight, it might seem cumbersome that this snippet has to be inserted into an empty new workflow.
@@ -54,9 +54,9 @@ All of this happens while transparently documenting your modifications directly 
 1. Obtain the template configuration from this repository, either by copy pasting into your existing configuration, or by downloading via
    ```bash
    mkdir -p config
-   wget -P config https://github.com/{{owner}}/{{repo}}/raw/<release>/{config.yaml,samples.tsv,units.tsv}
+   wget -P config https://github.com/[[ owner ]]/[[ repo ]]/raw/<release>/{config.yaml,samples.tsv,units.tsv}
    ```
-   while replacing `<release>` with the [latest stable release](https://github.com/{{owner}}/{{repo}}/releases).
+   while replacing `<release>` with the [latest stable release](https://github.com/[[ owner ]]/[[ repo ]]/releases).
 2. Modify the configuration according to your needs.
 
 ### Step 4: Consider using git-based version control
