@@ -4,3 +4,4 @@ module_name: dna_seq
 
 _exclude:
   - copier.yaml
+  - .git
