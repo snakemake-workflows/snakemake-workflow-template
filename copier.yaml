@@ -1,7 +1,0 @@
-owner: snakemake-workflows
-repo: dna-seq-gatk-variant-calling
-module_name: dna_seq
-
-_exclude:
-  - copier.yaml
-  - .git

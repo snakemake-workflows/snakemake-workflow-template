@@ -1,28 +1,15 @@
-# A best practice template for Snakemake workflows
+# Snakemake workflow: dna-seq-varlociraptor
 
-To generate a new structure using this template, run
+[![Snakemake](https://img.shields.io/badge/snakemake-≥6.3.0-brightgreen.svg)](https://snakemake.github.io)
+[![GitHub actions status](https://github.com/snakemake-workflows/dna-seq-varlociraptor/workflows/Tests/badge.svg?branch=main)](https://github.com/snakemake-workflows/dna-seq-varlociraptor/actions?query=branch%3Amain+workflow%3ATests)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4675661.svg)](https://doi.org/10.5281/zenodo.4675661)
 
-    copier gh:snakemake-workflows/snakemake-workflow-template <path>
 
-with path pointing to the desired output directory.
+A Snakemake workflow for calling small and structural variants under any kind of scenario (tumor/normal, tumor/normal/relapse, germline, pedigree, populations) via the unified statistical model of [Varlociraptor](https://varlociraptor.github.io).
 
-You will get the following structure:
 
-    ├── copier.yml
-    ├── README.md
-    ├── .template
-    │   ├── config
-    │   │   └── config.yaml.tmpl
-    │   └── workflow
-    │       └── Snakefile.tmpl
-    └── workflow
-        ├── rules
-        │   └── common.smk
-        └── Snakefile
+## Usage
 
-The `workflow` folder contains the structure to put the actual workflow in.
-Make sure to follow the [best practices](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#distribution-and-reproducibility).
+The usage of this workflow is described in the [Snakemake Workflow Catalog](https://snakemake.github.io/snakemake-workflow-catalog/?usage=snakemake-workflows%2Fdna-seq-varlociraptor).
 
-The `.template` folder contains an automatically generated template for deploying the workflow using Snakemake's [module system](https://snakemake.readthedocs.io/en/stable/snakefiles/modularization.html#snakefiles-modules).
-Here, you should edit the `config.yaml.tmpl` to contain the config settings you would like to initialize in the deployment of the user.
-It is possible to add further files needed for the configuration to the `.template` folder, e.g. sample sheets.
+If you use this workflow in a paper, don't forget to give credits to the authors by citing the URL of this (original) repository and its DOI (see above).
