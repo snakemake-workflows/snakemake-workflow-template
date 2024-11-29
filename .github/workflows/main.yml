@@ -2,16 +2,16 @@ name: Tests
 
 on:
   push:
-    branches: [ main ]
+    branches: [main, dev]
   pull_request:
-    branches: [ main ]
-
+    branches: [main, dev]
 
 jobs:
   Formatting:
     runs-on: ubuntu-latest
+    if: ${{ github.actor != 'github-actions[bot]' }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Formatting
         uses: github/super-linter@v4
         env:
@@ -22,33 +22,35 @@ jobs:
 
   Linting:
     runs-on: ubuntu-latest
+    if: ${{ github.actor != 'github-actions[bot]' }}
     steps:
-    - uses: actions/checkout@v2
-    - name: Lint workflow
-      uses: snakemake/snakemake-github-action@v1.24.0
-      with:
-        directory: .
-        snakefile: workflow/Snakefile
-        args: "--lint"
+      - uses: actions/checkout@v2
+      - name: Lint workflow
+        uses: snakemake/snakemake-github-action@v1.25.1
+        with:
+          directory: .
+          snakefile: workflow/Snakefile
+          args: "--lint"
 
   Testing:
     runs-on: ubuntu-latest
-    needs: 
+    if: ${{ github.actor != 'github-actions[bot]' }}
+    needs:
       - Linting
       - Formatting
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-    - name: Test workflow
-      uses: snakemake/snakemake-github-action@v1.24.0
-      with:
-        directory: .test
-        snakefile: workflow/Snakefile
-        args: "--use-conda --show-failed-logs --cores 3 --conda-cleanup-pkgs cache --all-temp"
+      - name: Test workflow
+        uses: snakemake/snakemake-github-action@v1.25.1
+        with:
+          directory: .test
+          snakefile: workflow/Snakefile
+          args: "--use-conda --show-failed-logs --cores 3 --conda-cleanup-pkgs cache --all-temp"
 
-    - name: Test report
-      uses: snakemake/snakemake-github-action@v1.24.0
-      with:
-        directory: .test
-        snakefile: workflow/Snakefile
-        args: "--report report.zip"
+      - name: Test report
+        uses: snakemake/snakemake-github-action@v1.25.1
+        with:
+          directory: .test
+          snakefile: workflow/Snakefile
+          args: "--report report.zip"
