@@ -1,0 +1,7 @@
+name: multiqc
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.9
+  - multiqc=1.14
