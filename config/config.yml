@@ -25,10 +25,3 @@ cutadapt:
 
 multiqc:
   config: "config/multiqc_config.yml"
-
-report:
-  export_figures: True
-  export_dir: "figures/"
-  figure_width: 875
-  figure_height: 500
-  figure_resolution: 125

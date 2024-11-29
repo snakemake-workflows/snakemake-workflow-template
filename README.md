@@ -43,10 +43,11 @@ The workflow is built using [snakemake](https://snakemake.readthedocs.io/en/stab
 This template workflow contains artifical sequencing data in `*.fastq.gz` format.
 The test data is located in `.test/data`. Input files are supplied with a mandatory table, whose location is indicated in the `config.yml` file (default: `.test/samples.tsv`). The sample sheet has the following layout:
 
-| sample   | condition | replicate | data_folder | fq1                      |
-| -------- | --------- | --------- | ----------- | ------------------------ |
-| RPF-RTP1 | RPF-RTP   | 1         | data        | RPF-RTP1_R1_001.fastq.gz |
-| RPF-RTP2 | RPF-RTP   | 2         | data        | RPF-RTP2_R1_001.fastq.gz |
+| sample  | condition | replicate | read1                      | read2                      |
+| ------- | --------- | --------- | -------------------------- | -------------------------- |
+| sample1 | wild_type | 1         | sample1.bwa.read1.fastq.gz | sample1.bwa.read2.fastq.gz |
+| sample2 | wild_type | 2         | sample2.bwa.read1.fastq.gz | sample2.bwa.read2.fastq.gz |
+
 
 ### Execution
 
@@ -79,14 +80,26 @@ snakemake --cores 10 --sdm conda apptainer --directory .test
 
 This table lists all parameters that can be used to run the workflow.
 
-| parameter              | type | details                                     | default                                      |
-| ---------------------- | ---- | ------------------------------------------- | -------------------------------------------- |
-| **samplesheet**        |      |                                             |                                              |
-| path                   | str  | path to samplesheet, mandatory              | "config/samples.tsv"                         |
-| **cutadapt**           |      |                                             |                                              |
-| fivep_adapter          | str  | sequence of the 5' adapter                  | Null                                         |
-| threep_adapter         | str  | sequence of the 3' adapter                  | `ATCGTAGATCGGAAGAGCACACGTCTGAA`              |
-| default                | str  | additional options passed to `cutadapt`     | [`-q 10 `, `-m 22 `, `-M 52`, `--overlap=3`] |
+| parameter          | type | details                                 | default                                       |
+| ------------------ | ---- | --------------------------------------- | --------------------------------------------- |
+| **samplesheet**    |      |                                         |                                               |
+| path               | str  | path to samplesheet, mandatory          | "config/samples.tsv"                          |
+| **get_genome**     |      |                                         |                                               |
+| database           | str  | one of `manual`, `ncbi`                 | `ncbi`                                        |
+| assembly           | str  | RefSeq ID                               | `GCF_000006785.2`                             |
+| fasta              | str  | optional path to fasta file             | Null                                          |
+| gff                | str  | optional path to gff file               | Null                                          |
+| gff_source_type    | str  | list of name/value pairs for GFF source | see config file                               |
+| **simulate_reads** |      |                                         |                                               |
+| read_length        | num  |                                         | 100                                           |
+| read_number        |      |                                         | 100000                                        |
+| random_freq        |      |                                         | 0.01                                          |
+| **cutadapt**       |      |                                         |                                               |
+| threep_adapter     | str  | sequence of the 3' adapter              | `-a ATCGTAGATCGG`                             |
+| fivep_adapter      | str  | sequence of the 5' adapter              | `-A GATGGCGATAGG`                             |
+| default            | str  | additional options passed to `cutadapt` | [`-q 10 `, `-m 25 `, `-M 100`, `--overlap=5`] |
+| **multiqc**        |      |                                         |                                               |
+| config             | str  | path to multiqc config                  | `config/multiqc_config.yml`                   |
 
 ## Authors
 
