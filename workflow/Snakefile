@@ -13,10 +13,6 @@ import pandas as pd
 configfile: "config/config.yml"
 
 
-# container definition: uncomment to include a singularity image, e.g. from github's container registry
-# container: "oras://ghcr.io/<user>/<repository>:<version>"
-
-
 # load rules
 # -----------------------------------------------------
 include: "rules/common.smk"

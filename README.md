@@ -40,8 +40,7 @@ The workflow is built using [snakemake](https://snakemake.readthedocs.io/en/stab
 
 ### Input data
 
-This template workflow contains artifical sequencing data in `*.fastq.gz` format.
-The test data is located in `.test/data`. Input files are supplied with a mandatory table, whose location is indicated in the `config.yml` file (default: `.test/samples.tsv`). The sample sheet has the following layout:
+This template workflow creates artificial sequencing data in `*.fastq.gz` format. It does not contain actual input data. The simulated input files are nevertheless created based on a mandatory table linked in the `config.yml` file (default: `.test/samples.tsv`). The sample sheet has the following layout:
 
 | sample  | condition | replicate | read1                      | read2                      |
 | ------- | --------- | --------- | -------------------------- | -------------------------- |
@@ -67,13 +66,14 @@ snakemake --dry-run
 To run the complete workflow with test files using **conda**, execute the following command. The definition of the number of compute cores is mandatory.
 
 ```bash
-snakemake --cores 10 --sdm conda --directory .test
+snakemake --cores 3 --sdm conda --directory .test
 ```
 
-To run the workflow with **singularity** / **apptainer**, use:
+To run the workflow with **singularity** / **apptainer**, add a link to a container registry in the `Snakefile`, for example:
+`container: "oras://ghcr.io/<user>/<repository>:<version>"` for Github's container registry. Run the workflow with:
 
 ```bash
-snakemake --cores 10 --sdm conda apptainer --directory .test
+snakemake --cores 3 --sdm conda apptainer --directory .test
 ```
 
 ### Parameters
@@ -91,15 +91,15 @@ This table lists all parameters that can be used to run the workflow.
 | gff                | str  | optional path to gff file               | Null                                          |
 | gff_source_type    | str  | list of name/value pairs for GFF source | see config file                               |
 | **simulate_reads** |      |                                         |                                               |
-| read_length        | num  |                                         | 100                                           |
-| read_number        |      |                                         | 100000                                        |
-| random_freq        |      |                                         | 0.01                                          |
+| read_length        | num  | length of target reads in bp            | 100                                           |
+| read_number        | num  | number of total reads to be simulated   | 100000                                        |
+| random_freq        | num  | frequency of random read sequences      | 0.01                                          |
 | **cutadapt**       |      |                                         |                                               |
 | threep_adapter     | str  | sequence of the 3' adapter              | `-a ATCGTAGATCGG`                             |
 | fivep_adapter      | str  | sequence of the 5' adapter              | `-A GATGGCGATAGG`                             |
 | default            | str  | additional options passed to `cutadapt` | [`-q 10 `, `-m 25 `, `-M 100`, `--overlap=5`] |
 | **multiqc**        |      |                                         |                                               |
-| config             | str  | path to multiqc config                  | `config/multiqc_config.yml`                   |
+| config             | str  | path to multiQC config                  | `config/multiqc_config.yml`                   |
 
 ## Authors
 
