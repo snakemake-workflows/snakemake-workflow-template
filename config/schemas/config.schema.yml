@@ -1,0 +1,44 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+description: an entry in the sample sheet
+properties:
+  samplesheet:
+    type: string
+    description: sample name/identifier
+
+  get_genome:
+    properties:
+      database:
+        type: ["string", "null"]
+      assembly:
+        type: ["string", "null"]
+      fasta:
+        type: ["string", "null"]
+      gff:
+        type: ["string", "null"]
+      gff_source_type:
+        type: array
+
+  simulate_reads:
+    properties:
+      read_length:
+        type: number
+      read_number:
+        type: number
+      random_freq:
+        type: number
+
+  cutadapt:
+    properties:
+      threep_adapter:
+        type: string
+      fivep_adapter:
+        type: string
+      default:
+        type: array
+
+  multiqc:
+    properties:
+      config:
+        type: string
+
+required: ["samplesheet", "get_genome", "simulate_reads", "cutadapt", "multiqc"]

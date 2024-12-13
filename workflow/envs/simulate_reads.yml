@@ -1,0 +1,6 @@
+name: get_genome
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - dwgsim=1.1.14
