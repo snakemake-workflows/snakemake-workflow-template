@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.1.0](https://github.com/MPUSP/snakemake-workflow-template/compare/v1.0.0...v1.1.0) (2025-04-24)
+
+
+### Features
+
+* major simplification of rules, replacement of others by wrappers ([3811ef7](https://github.com/MPUSP/snakemake-workflow-template/commit/3811ef796df4fe38fb7161f9a1b06fac9db86d5b))
+* major simplification of template and update docs ([81ee089](https://github.com/MPUSP/snakemake-workflow-template/commit/81ee08989857366893593a333615523f05295f87))
+* replaced get genome script with simple shell command ([9208995](https://github.com/MPUSP/snakemake-workflow-template/commit/9208995b78433ce3680a0b0e453ddcf5915abcef))
+
+
+### Bug Fixes
+
+* removed unused templates, update catalog yml ([b5c292f](https://github.com/MPUSP/snakemake-workflow-template/commit/b5c292ff4b476441d8068ca8013e3b931d30fc04))
+* update snakemake action ([fac8662](https://github.com/MPUSP/snakemake-workflow-template/commit/fac8662193fa501fdfc2f3bb94e7549b96dec500))
+
 ## 1.0.0 (2025-03-10)
 
 
