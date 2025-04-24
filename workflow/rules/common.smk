@@ -1,7 +1,6 @@
 # import basic packages
 import pandas as pd
 from snakemake.utils import validate
-from os import path
 
 
 # read sample sheet

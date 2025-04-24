@@ -29,12 +29,10 @@ If you use this workflow in a paper, don't forget to give credits to the authors
 This workflow is a best-practice workflow for `<detailed description>`.
 The workflow is built using [snakemake](https://snakemake.readthedocs.io/en/stable/) and consists of the following steps:
 
-1. Parse sample sheet containing sample meta data (`python`)
-2. Download genome reference from NCBI
-3. Simulate short read sequencing data on the fly (`dwgsim`)
-4. Check quality of input read data (`FastQC`)
-5. Trim adapters from input data (`cutadapt`)
-6. Collect statistics from tool output (`MultiQC`)
+1. Download genome reference from NCBI
+2. Simulate short read sequencing data on the fly (`dwgsim`)
+3. Check quality of input read data (`FastQC`)
+4. Collect statistics from tool output (`MultiQC`)
 
 ## Running the workflow
 
@@ -79,22 +77,16 @@ snakemake --cores 2 --sdm conda apptainer --directory .test
 
 This table lists all parameters that can be used to run the workflow.
 
-| parameter          | type | details                                 | default                                       |
-| ------------------ | ---- | --------------------------------------- | --------------------------------------------- |
-| **samplesheet**    |      |                                         |                                               |
-| path               | str  | path to samplesheet, mandatory          | "config/samples.tsv"                          |
-| **get_genome**     |      |                                         |                                               |
-| ncbi_ftp           | str  | link to a genome on NCBI's FTP server   | link to _S. cerevisiae_ genome                |
-| **simulate_reads** |      |                                         |                                               |
-| read_length        | num  | length of target reads in bp            | 100                                           |
-| read_number        | num  | number of total reads to be simulated   | 100000                                        |
-| random_freq        | num  | frequency of random read sequences      | 0.01                                          |
-| **cutadapt**       |      |                                         |                                               |
-| threep_adapter     | str  | sequence of the 3' adapter              | `-a ATCGTAGATCGG`                             |
-| fivep_adapter      | str  | sequence of the 5' adapter              | `-A GATGGCGATAGG`                             |
-| default            | str  | additional options passed to `cutadapt` | [`-q 10 `, `-m 25 `, `-M 100`, `--overlap=5`] |
-| **multiqc**        |      |                                         |                                               |
-| config             | str  | path to multiQC config                  | `config/multiqc_config.yml`                   |
+| parameter          | type | details                               | default                        |
+| ------------------ | ---- | ------------------------------------- | ------------------------------ |
+| **samplesheet**    |      |                                       |                                |
+| path               | str  | path to samplesheet, mandatory        | "config/samples.tsv"           |
+| **get_genome**     |      |                                       |                                |
+| ncbi_ftp           | str  | link to a genome on NCBI's FTP server | link to _S. cerevisiae_ genome |
+| **simulate_reads** |      |                                       |                                |
+| read_length        | num  | length of target reads in bp          | 100                            |
+| read_number        | num  | number of total reads to be simulated | 100000                         |
+| random_freq        | num  | frequency of random read sequences    | 0.01                           |
 
 ## Authors
 
