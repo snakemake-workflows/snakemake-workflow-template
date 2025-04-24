@@ -1,27 +1,9 @@
 samplesheet: ".test/config/samples.tsv"
 
 get_genome:
-  database: "ncbi"
-  assembly: "GCF_000006785.2"
-  fasta: Null
-  gff: Null
-  gff_source_type:
-    [
-      "RefSeq": "gene",
-      "RefSeq": "pseudogene",
-      "RefSeq": "CDS",
-      "Protein Homology": "CDS",
-    ]
+  ncbi_ftp: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.fna.gz
 
 simulate_reads:
   read_length: 100
   read_number: 100000
-  random_freq: 0.01
-
-cutadapt:
-  threep_adapter: "-a ATCGTAGATCGG"
-  fivep_adapter: "-A GATGGCGATAGG"
-  default: ["-q 10 ", "-m 25 ", "-M 100", "--overlap=5"]
-
-multiqc:
-  config: "config/multiqc_config.yml"
+  random_reads: 0.01

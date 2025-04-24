@@ -4,10 +4,6 @@
 # in particular regarding the standardized folder structure mentioned there.
 
 
-import os
-import pandas as pd
-
-
 # load configuration
 # -----------------------------------------------------
 configfile: "config/config.yml"
@@ -26,11 +22,11 @@ onstart:
 
 
 onsuccess:
-    print("--- Workflow finished! ---")
+    print("\n--- Workflow finished! ---\n")
 
 
 onerror:
-    print("--- An error occurred! ---")
+    print("\n--- An error occurred! ---\n")
 
 
 # target rules

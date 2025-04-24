@@ -1,6 +1,8 @@
-name: get_genome
+name: simulate_reads
 channels:
   - conda-forge
   - bioconda
+  - nodefaults
 dependencies:
+  - python=3.13
   - dwgsim=1.1.14

@@ -7,16 +7,8 @@ properties:
 
   get_genome:
     properties:
-      database:
-        type: ["string", "null"]
-      assembly:
-        type: ["string", "null"]
-      fasta:
-        type: ["string", "null"]
-      gff:
-        type: ["string", "null"]
-      gff_source_type:
-        type: array
+      ncbi_ftp:
+        type: string
 
   simulate_reads:
     properties:
@@ -24,21 +16,7 @@ properties:
         type: number
       read_number:
         type: number
-      random_freq:
+      random_reads:
         type: number
 
-  cutadapt:
-    properties:
-      threep_adapter:
-        type: string
-      fivep_adapter:
-        type: string
-      default:
-        type: array
-
-  multiqc:
-    properties:
-      config:
-        type: string
-
-required: ["samplesheet", "get_genome", "simulate_reads", "cutadapt", "multiqc"]
+required: ["samplesheet", "get_genome", "simulate_reads"]
