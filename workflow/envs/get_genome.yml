@@ -3,7 +3,4 @@ channels:
   - conda-forge
   - bioconda
 dependencies:
-  - unzip=6.0
-  - ncbi-datasets-cli=16.23.0
-  - bcbio-gff=0.7.1
-  - samtools=1.20
+  - gzip=1.14

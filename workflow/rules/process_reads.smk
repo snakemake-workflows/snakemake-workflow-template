@@ -3,29 +3,29 @@
 # ----------------------------------------------------- #
 
 
-# module to fetch genome from NCBI or Ensemble
+# fetch genome from NCBI
 # -----------------------------------------------------
 rule get_genome:
     output:
-        path=directory("results/get_genome"),
-        fasta="results/get_genome/genome.fasta",
+        fasta="results/get_genome/genome.fna",
         gff="results/get_genome/genome.gff",
     conda:
         "../envs/get_genome.yml"
     message:
-        """--- Parsing genome GFF and FASTA files."""
+        """--- Downloading genome FASTA and GFF files."""
     params:
-        database=config["get_genome"]["database"],
-        assembly=config["get_genome"]["assembly"],
-        fasta=config["get_genome"]["fasta"],
-        gff=config["get_genome"]["gff"],
+        ncbi_ftp=config["get_genome"]["ncbi_ftp"],
     log:
-        path="results/get_genome/log/get_genome.log",
-    script:
-        "../scripts/get_genome.py"
+        path="results/get_genome/genome.log",
+    shell:
+        "for file_type in fna gff; do "
+        "  wget -O results/get_genome/genome.${{file_type}}.gz "
+        "  {params.ncbi_ftp}.${{file_type}}.gz && "
+        "  gunzip results/get_genome/genome.${{file_type}}.gz; "
+        "done > {log.path} 2>&1"
 
 
-# module simulate reads
+# simulate reads using DWGSIM
 # -----------------------------------------------------
 rule simulate_reads:
     input:
@@ -49,7 +49,7 @@ rule simulate_reads:
         "-N {params.read_number} -o 1 -y {params.random_freq} {input.fasta} ${{prefix}} &> {log.path}"
 
 
-# module to make QC report
+# make QC report
 # -----------------------------------------------------
 rule fastqc:
     input:
@@ -67,7 +67,7 @@ rule fastqc:
         "fastqc --nogroup --extract --quiet --threads {threads} -o ${{prefix}} {input.fastq} > {log}"
 
 
-# module to trim adapters from reads
+# trim adapters from reads
 # -----------------------------------------------------
 rule cutadapt:
     input:
@@ -93,7 +93,7 @@ rule cutadapt:
         "-o {output.fastq1} -p {output.fastq2} {input.fastq1} {input.fastq1} > {log.stdout} 2> {log.stderr}"
 
 
-# module to run multiQC on input + processed files
+# run multiQC on tool output
 # -----------------------------------------------------
 rule multiqc:
     input:

@@ -1,17 +1,7 @@
 samplesheet: ".test/config/samples.tsv"
 
 get_genome:
-  database: "ncbi"
-  assembly: "GCF_000006785.2"
-  fasta: Null
-  gff: Null
-  gff_source_type:
-    [
-      "RefSeq": "gene",
-      "RefSeq": "pseudogene",
-      "RefSeq": "CDS",
-      "Protein Homology": "CDS",
-    ]
+  ncbi_ftp: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic
 
 simulate_reads:
   read_length: 100

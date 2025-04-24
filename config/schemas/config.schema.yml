@@ -7,16 +7,8 @@ properties:
 
   get_genome:
     properties:
-      database:
-        type: ["string", "null"]
-      assembly:
-        type: ["string", "null"]
-      fasta:
-        type: ["string", "null"]
-      gff:
-        type: ["string", "null"]
-      gff_source_type:
-        type: array
+      ncbi_ftp:
+        type: string
 
   simulate_reads:
     properties:
