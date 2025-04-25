@@ -59,5 +59,5 @@ This table lists all parameters that can be used to run the workflow.
 | ncbi_ftp           | str  | link to a genome on NCBI's FTP server | link to _S. cerevisiae_ genome |
 | **simulate_reads** |      |                                       |                                |
 | read_length        | num  | length of target reads in bp          | 100                            |
-| read_number        | num  | number of total reads to be simulated | 100000                         |
-| random_freq        | num  | frequency of random read sequences    | 0.01                           |
+| read_number        | num  | number of total reads to be simulated | 10000                          |
+| random_reads       | num  | frequency of random read sequences    | 0.01                           |

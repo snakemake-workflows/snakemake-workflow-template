@@ -5,5 +5,5 @@ get_genome:
 
 simulate_reads:
   read_length: 100
-  read_number: 100000
+  read_number: 10000
   random_reads: 0.01

@@ -13,6 +13,10 @@ log = snakemake.log_fmt_shell(stdout=True, stderr=True)
 
 # get input files
 fasta = snakemake.input.get("fasta")
+if not fasta:
+    raise ValueError("Input FASTA file not specified")
+if not path.exists(fasta):
+    raise FileNotFoundError(f"Input FASTA file not found: {fasta}")
 
 # run tool
 shell(

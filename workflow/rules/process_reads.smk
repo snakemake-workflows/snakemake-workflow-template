@@ -17,8 +17,8 @@ rule get_genome:
     log:
         "results/get_genome/genome.log",
     shell:
-        "wget -O results/get_genome/genome.fna.gz {params.ncbi_ftp} > {log} 2>&1;"
-        "gunzip results/get_genome/genome.fna.gz > {log} 2>&1"
+        "wget -O results/get_genome/genome.fna.gz {params.ncbi_ftp} > {log} 2>&1 && "
+        "gunzip results/get_genome/genome.fna.gz >> {log} 2>&1"
 
 
 # simulate read data using DWGSIM
