@@ -22,8 +22,5 @@ properties:
       read_number:
         type: number
         description: number of total reads to be simulated
-      random_reads:
-        type: number
-        description: frequency of random read sequences
 
 required: ["samplesheet", "get_genome", "simulate_reads"]

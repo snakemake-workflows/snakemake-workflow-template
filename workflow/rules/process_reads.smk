@@ -13,7 +13,7 @@ rule get_genome:
     message:
         """--- Downloading genome sequence."""
     params:
-        ncbi_ftp=config["get_genome"]["ncbi_ftp"],
+        ncbi_ftp=lookup(within=config, dpath="get_genome/ncbi_ftp"),
     log:
         "results/get_genome/genome.log",
     shell:
@@ -21,26 +21,54 @@ rule get_genome:
         "gunzip results/get_genome/genome.fna.gz >> {log} 2>&1"
 
 
+# validate genome sequence file
+# -----------------------------------------------------
+rule validate_genome:
+    input:
+        fasta=rules.get_genome.output.fasta,
+    output:
+        fasta="results/validate_genome/genome.fna",
+    conda:
+        "../envs/validate_genome.yml"
+    message:
+        """--- Validating genome sequence file."""
+    log:
+        "results/validate_genome/genome.log",
+    script:
+        "../scripts/validate_fasta.py"
+
+
 # simulate read data using DWGSIM
 # -----------------------------------------------------
 rule simulate_reads:
     input:
-        fasta=rules.get_genome.output.fasta,
+        fasta=rules.validate_genome.output.fasta,
     output:
-        fastq1="results/simulate_reads/{sample}.bwa.read1.fastq.gz",
-        fastq2="results/simulate_reads/{sample}.bwa.read2.fastq.gz",
+        multiext(
+            "results/simulate_reads/{sample}",
+            read1=".bwa.read1.fastq.gz",
+            read2=".bwa.read2.fastq.gz",
+        ),
     conda:
         "../envs/simulate_reads.yml"
     message:
         """--- Simulating read data with DWGSIM."""
     params:
-        read_length=config["simulate_reads"]["read_length"],
-        read_number=config["simulate_reads"]["read_number"],
-        random_reads=config["simulate_reads"]["random_reads"],
+        output_type=1,
+        read_length=lookup(within=config, dpath="simulate_reads/read_length"),
+        read_number=lookup(within=config, dpath="simulate_reads/read_number"),
     log:
         "results/simulate_reads/{sample}.log",
-    script:
-        "../scripts/simulate_reads.py"
+    shell:
+        "output_prefix=`echo {output.read1} | cut -f 1 -d .`;"
+        "dwgsim "
+        " -1 {params.read_length}"
+        " -2 {params.read_length}"
+        " -N {params.read_number}"
+        " -o {params.output_type}"
+        " {input.fasta}"
+        " ${{output_prefix}}"
+        " > {log} 2>&1"
 
 
 # make QC report

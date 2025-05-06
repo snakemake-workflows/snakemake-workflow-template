@@ -1,7 +1,8 @@
-name: simulate_reads
+name: validate_genome
 channels:
   - conda-forge
   - bioconda
   - nodefaults
 dependencies:
-  - dwgsim=1.1.14
+  - python=3.12
+  - biopython=1.85

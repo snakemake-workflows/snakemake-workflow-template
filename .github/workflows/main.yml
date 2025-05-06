@@ -2,14 +2,13 @@ name: Tests
 
 on:
   push:
-    branches: [main, dev]
+    branches: [main]
   pull_request:
-    branches: [main, dev]
+    branches: [main]
 
 jobs:
   Formatting:
     runs-on: ubuntu-latest
-    if: ${{ github.actor != 'github-actions[bot]' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -25,7 +24,6 @@ jobs:
 
   Linting:
     runs-on: ubuntu-latest
-    if: ${{ github.actor != 'github-actions[bot]' }}
     steps:
       - uses: actions/checkout@v4
       - name: Lint workflow
@@ -37,7 +35,6 @@ jobs:
 
   Testing:
     runs-on: ubuntu-latest
-    if: ${{ github.actor != 'github-actions[bot]' }}
     needs:
       - Linting
       - Formatting
