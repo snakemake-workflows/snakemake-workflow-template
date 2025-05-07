@@ -1,0 +1,8 @@
+samplesheet: "config/samples.tsv"
+
+get_genome:
+  ncbi_ftp: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.fna.gz
+
+simulate_reads:
+  read_length: 100
+  read_number: 10000

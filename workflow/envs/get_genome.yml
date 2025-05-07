@@ -1,0 +1,8 @@
+name: get_genome
+channels:
+  - conda-forge
+  - bioconda
+  - nodefaults
+dependencies:
+  - gzip=1.14
+  - wget=1.21.4

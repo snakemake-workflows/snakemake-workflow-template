@@ -1,0 +1,25 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+description: entries for the sample sheet
+properties:
+  sample:
+    type: string
+    description: sample name/identifier
+  condition:
+    type: string
+    description: sample condition that will be compared during differential analysis
+  replicate:
+    type: integer
+    default: 1
+    description: consecutive numbers representing multiple replicates of one condition
+  read1:
+    type: string
+    description: names of fastq.gz files, read 1
+  read2:
+    type: string
+    description: names of fastq.gz files, read 2 (optional)
+
+required:
+  - sample
+  - condition
+  - replicate
+  - read1
