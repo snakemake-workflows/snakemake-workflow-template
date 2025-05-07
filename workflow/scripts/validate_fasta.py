@@ -1,8 +1,7 @@
+import sys
 from Bio import SeqIO
 
-input_fasta = snakemake.input["fasta"]
-output_fasta = snakemake.output["fasta"]
-log = snakemake.log
+sys.stderr = open(snakemake.log[0], "w", buffering=1)
 
 
 def validate_fasta(input_fasta, output_fasta):
@@ -16,13 +15,10 @@ def validate_fasta(input_fasta, output_fasta):
                 summary += [f"{i.name}: {i.description}" for i in records]
         with open(output_fasta, "w") as validated_file:
             SeqIO.write(records, validated_file, "fasta")
-        with open(str(log), "w") as log_file:
-            log_file.write("\n".join(summary))
+        sys.stderr.write("\n".join(summary))
     except Exception as e:
-        with open(str(log), "a") as log_file:
-            log_file.write(f"Validation failed: {e}\n")
+        sys.stderr.write(f"Validation failed: {e}\n")
         raise
 
 
-if __name__ == "__main__":
-    validate_fasta(input_fasta, output_fasta)
+validate_fasta(snakemake.input["fasta"], snakemake.output["fasta"])
