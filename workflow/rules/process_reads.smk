@@ -95,9 +95,10 @@ rule fastqc:
 rule multiqc:
     input:
         expand(
-            "results/fastqc/{sample}.bwa.{read}_fastqc.html",
+            "results/fastqc/{sample}.bwa.{read}_fastqc.{ext}",
             sample=samples.index,
             read=["read1", "read2"],
+            ext=["html", "zip"]
         ),
     output:
         report="results/multiqc/multiqc_report.html",
