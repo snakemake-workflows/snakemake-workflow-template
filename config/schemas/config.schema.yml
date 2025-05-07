@@ -23,4 +23,7 @@ properties:
         type: number
         description: number of total reads to be simulated
 
-required: ["samplesheet", "get_genome", "simulate_reads"]
+required:
+  - samplesheet
+  - get_genome
+  - simulate_reads
