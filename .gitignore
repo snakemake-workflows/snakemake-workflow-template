@@ -4,3 +4,4 @@ logs/**
 .snakemake
 .snakemake/**
 .test/results/*
+workflow/notebooks/.ipynb_checkpoints/**
