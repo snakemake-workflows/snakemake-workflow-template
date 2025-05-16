@@ -6,3 +6,5 @@ logs/**
 .test/results/*
 workflow/notebooks/.ipynb_checkpoints/**
 **/.Rhistory
+**/*.Rproj
+**/.Rproj.user/**
