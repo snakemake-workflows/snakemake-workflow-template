@@ -8,3 +8,4 @@ workflow/notebooks/.ipynb_checkpoints/**
 **/.Rhistory
 **/*.Rproj
 **/.Rproj.user/**
+**/.RData
