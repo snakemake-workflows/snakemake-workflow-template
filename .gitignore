@@ -9,3 +9,4 @@ workflow/notebooks/.ipynb_checkpoints/**
 **/*.Rproj
 **/.Rproj.user/**
 **/.RData
+**/Rplots.pdf
