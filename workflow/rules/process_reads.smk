@@ -9,7 +9,7 @@ rule get_genome:
     output:
         fasta="results/get_genome/genome.fna",
     conda:
-        "../envs/get_genome.yml"
+        "../envs/get_genome.yaml"
     message:
         """--- Downloading genome sequence."""
     params:
@@ -29,7 +29,7 @@ rule validate_genome:
     output:
         fasta="results/validate_genome/genome.fna",
     conda:
-        "../envs/validate_genome.yml"
+        "../envs/validate_genome.yaml"
     message:
         """--- Validating genome sequence file."""
     log:
@@ -50,7 +50,7 @@ rule simulate_reads:
             read2=".bwa.read2.fastq.gz",
         ),
     conda:
-        "../envs/simulate_reads.yml"
+        "../envs/simulate_reads.yaml"
     message:
         """--- Simulating read data with DWGSIM."""
     params:

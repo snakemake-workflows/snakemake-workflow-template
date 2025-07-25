@@ -15,7 +15,7 @@ The workflow is built using [snakemake](https://snakemake.readthedocs.io/en/stab
 
 This template workflow creates artificial sequencing data in `*.fastq.gz` format.
 It does not contain actual input data.
-The simulated input files are nevertheless created based on a mandatory table linked in the `config.yml` file (default: `.test/samples.tsv`).
+The simulated input files are nevertheless created based on a mandatory table linked in the `config.yaml` file (default: `.test/samples.tsv`).
 The sample sheet has the following layout:
 
 | sample  | condition | replicate | read1                      | read2                      |

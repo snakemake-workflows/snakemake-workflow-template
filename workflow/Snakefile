@@ -6,7 +6,7 @@
 
 # load configuration
 # -----------------------------------------------------
-configfile: "config/config.yml"
+configfile: "config/config.yaml"
 
 
 # load rules
