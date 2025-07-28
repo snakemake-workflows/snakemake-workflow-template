@@ -30,7 +30,7 @@ To run the workflow from command line, change the working directory.
 cd path/to/snakemake-workflow-name
 ```
 
-Adjust options in the default config file `config/config.yml`.
+Adjust options in the default config file `config/config.yaml`.
 Before running the complete workflow, you can perform a dry run using:
 
 ```bash
