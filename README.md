@@ -56,7 +56,7 @@ When developing on a cluster or cloud instance, please include a "profiles" dire
 
 `profiles/<cluster or cloud name>/config.yaml`
 
-This configuration file should contain the workflow profile with its resource specification for a particular execution environment (cluster or cload). You may include a readme file next to point out pitfalls or other aspects worth a user's consideration.
+This configuration file should contain the workflow profile with its resource specification for a particular execution environment (cluster or cloud). You may include a readme file next to point out pitfalls or other aspects worth a user's consideration.
 
 ## Authors
 
