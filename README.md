@@ -10,6 +10,7 @@ A Snakemake workflow for `<description>`
 - [Snakemake workflow: `<name>`](#snakemake-workflow-name)
   - [Usage](#usage)
   - [Deployment options](#deployment-options)
+  - [The "profiles" Directory](#the-profiles-directory)
   - [Authors](#authors)
   - [References](#references)
   - [TODO](#todo)
