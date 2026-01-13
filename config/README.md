@@ -29,8 +29,8 @@ This table lists all parameters that can be used to run the workflow.
 
 | parameter          | type | details                               | default                        |
 | ------------------ | ---- | ------------------------------------- | ------------------------------ |
-| **samplesheet**    |      |                                       |                                |
-| path               | str  | path to samplesheet, mandatory        | "config/samples.tsv"           |
+| **sample_sheet**    |      |                                       |                                |
+| path               | str  | path to sample sheet, mandatory        | "config/samples.tsv"           |
 | **get_genome**     |      |                                       |                                |
 | ncbi_ftp           | str  | link to a genome on NCBI's FTP server | link to _S. cerevisiae_ genome |
 | **simulate_reads** |      |                                       |                                |

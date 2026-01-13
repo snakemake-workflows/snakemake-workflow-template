@@ -1,7 +1,7 @@
 $schema: "https://json-schema.org/draft/2020-12/schema"
 description: main configuration schema for the workflow
 properties:
-  samplesheet:
+  sample_sheet:
     type: string
     description: path to sample-sheet TSV file
 
@@ -24,6 +24,6 @@ properties:
         description: number of total reads to be simulated
 
 required:
-  - samplesheet
+  - sample_sheet
   - get_genome
   - simulate_reads
