@@ -5,7 +5,7 @@ from snakemake.utils import validate
 
 # read sample sheet
 samples = (
-    pd.read_csv(config["samplesheet"], sep="\t", dtype={"sample": str})
+    pd.read_csv(config["sample_sheet"], sep="\t", dtype={"sample": str})
     .set_index("sample", drop=False)
     .sort_index()
 )
