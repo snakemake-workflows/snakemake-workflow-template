@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.1](https://github.com/snakemake-workflows/snakemake-workflow-template/compare/v1.1.0...v1.1.1) (2026-01-14)
+
+
+### Bug Fixes
+
+* move schemas folder from `config/` to `workflow/` ([605c11e](https://github.com/snakemake-workflows/snakemake-workflow-template/commit/605c11e447b1de66eb9284e8df18a66f4273f079))
+* move schemas folder from `config/` to `workflow/` ([a0d2f03](https://github.com/snakemake-workflows/snakemake-workflow-template/commit/a0d2f03ac2888f77248f00068dbdd46c028d747a))
+* switch from `samplesheet` to `sample_sheet`, as this is not a compound word ([8da47d7](https://github.com/snakemake-workflows/snakemake-workflow-template/commit/8da47d771a48159ee05480ccb73937faf0a02279))
+* switch from `samplesheet` to `sample_sheet`, as this is not a compound word ([d7e4ab3](https://github.com/snakemake-workflows/snakemake-workflow-template/commit/d7e4ab351b3513a182847bf76bacc1addfa90641))
+
 ## [1.1.0](https://github.com/snakemake-workflows/snakemake-workflow-template/compare/v1.0.0...v1.1.0) (2025-07-29)
 
 
