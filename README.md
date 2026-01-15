@@ -10,6 +10,7 @@ A Snakemake workflow for `<description>`
 - [Snakemake workflow: `<name>`](#snakemake-workflow-name)
   - [Usage](#usage)
   - [Deployment options](#deployment-options)
+  - [The "profiles" Directory](#the-profiles-directory)
   - [Authors](#authors)
   - [References](#references)
   - [TODO](#todo)
@@ -49,6 +50,14 @@ Run the workflow with:
 ```bash
 snakemake --cores 2 --sdm conda apptainer --directory .test
 ```
+
+## The "profiles" Directory
+
+When developing on a cluster or cloud instance, please include a "profiles" directory:
+
+`profiles/<cluster or cloud name>/config.yaml`
+
+This configuration file should contain the workflow profile with its resource specification for a particular execution environment (cluster or cloud). You may include a readme file next to point out pitfalls or other aspects worth a user's consideration.
 
 ## Authors
 
