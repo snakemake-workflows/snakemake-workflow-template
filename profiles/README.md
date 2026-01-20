@@ -1,4 +1,4 @@
-The `profiles/` directory can contain any number of subdirectories, each containing a `config.yaml` file with a [workflow specific profile](https://snakemake.readthedocs.io/en/stable/executing/cli.html#profiles):
+The `profiles/` directory can contain any number of subdirectories, each containing a `config.yaml` file with a [workflow-specific profile](https://snakemake.readthedocs.io/en/stable/executing/cli.html#profiles):
 
 `profiles/<specific_profile_name>/config.yaml`
 
