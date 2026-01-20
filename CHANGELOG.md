@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.2.0](https://github.com/snakemake-workflows/snakemake-workflow-template/compare/v1.1.0...v1.2.0) (2026-01-20)
+
+
+### Features
+
+* add profile info ([a42db58](https://github.com/snakemake-workflows/snakemake-workflow-template/commit/a42db586610df85a78995c1fc9503553b2fab1ce))
+* added profiles directory with a README.txt ([d0a8ea2](https://github.com/snakemake-workflows/snakemake-workflow-template/commit/d0a8ea26f321fb8d3b2f0825e4a34b3d8c92948a))
+* included information to the profiles directory ([a1b6b49](https://github.com/snakemake-workflows/snakemake-workflow-template/commit/a1b6b495aaeb340a990f52a2d4d3e5440e2f6a67))
+
+
+### Bug Fixes
+
+* added missing content section ([014867f](https://github.com/snakemake-workflows/snakemake-workflow-template/commit/014867f449ec6c00cad16850a827ef0df026eb50))
+* move schemas folder from `config/` to `workflow/` ([605c11e](https://github.com/snakemake-workflows/snakemake-workflow-template/commit/605c11e447b1de66eb9284e8df18a66f4273f079))
+* move schemas folder from `config/` to `workflow/` ([a0d2f03](https://github.com/snakemake-workflows/snakemake-workflow-template/commit/a0d2f03ac2888f77248f00068dbdd46c028d747a))
+* switch from `samplesheet` to `sample_sheet`, as this is not a compound word ([8da47d7](https://github.com/snakemake-workflows/snakemake-workflow-template/commit/8da47d771a48159ee05480ccb73937faf0a02279))
+* switch from `samplesheet` to `sample_sheet`, as this is not a compound word ([d7e4ab3](https://github.com/snakemake-workflows/snakemake-workflow-template/commit/d7e4ab351b3513a182847bf76bacc1addfa90641))
+
 ## [1.1.0](https://github.com/snakemake-workflows/snakemake-workflow-template/compare/v1.0.0...v1.1.0) (2025-07-29)
 
 
