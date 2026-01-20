@@ -53,11 +53,8 @@ snakemake --cores 2 --sdm conda apptainer --directory .test
 
 ## Workflow profiles
 
-When developing on a cluster or cloud instance, please include a "profiles" directory:
-
-`profiles/<cluster or cloud name>/config.yaml`
-
-This configuration file should contain the workflow profile with its resource specification for a particular execution environment (cluster or cloud). You may include a readme file next to point out pitfalls or other aspects worth a user's consideration.
+The `profiles/` directory can contain any number of [workflow specific profiles](https://snakemake.readthedocs.io/en/stable/executing/cli.html#profiles) that users can choose from.
+The [profiles `README.md`](profiles/README.md) provides more details.
 
 ## Authors
 
