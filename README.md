@@ -51,7 +51,7 @@ Run the workflow with:
 snakemake --cores 2 --sdm conda apptainer --directory .test
 ```
 
-## The "profiles" Directory
+## Workflow profiles
 
 When developing on a cluster or cloud instance, please include a "profiles" directory:
 
