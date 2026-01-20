@@ -1,9 +1,17 @@
-A 'profiles' directory might contain workflow resource configuration for a particular cluster or cloud instance.
+The `profiles/` directory can contain any number of subdirectories, each containing a `config.yaml` file with a [workflow specific profile](https://snakemake.readthedocs.io/en/stable/executing/cli.html#profiles):
 
-We encourage to include a profile for your use case as:
+`profiles/<specific_profile_name>/config.yaml`
 
-`profiles/<your cluster or cloud instance>/config.yaml`
+The profile `profiles/default/config.yaml` will automatically be used by snakemake whenever you don't provide a workflow-specific profile via `--workflow-profile`.
+This means that any resources or other (command line) arguments specified there, will implicitly be used when running this workflow.
+Thus, as a workflow developer, only put configurations there that you expect to work in most environments, but which the users might want to tweak.
+And for rule-specific resource setting, preferably provide generally applicable settings right in the rule definition, if necessary via [dynamic resource](https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#dynamic-resources) specification---users can always override those in a profile, if they need to.
 
-You may include a readme file next to the config.yaml file to point out pitfalls or other things to consider.
+For any more specific profiles, use separate and clearly named subdirectories.
+For example use `profiles/slurm/config.yaml` for a slurm-specific profile, or even something like `profiles/slurm_uni_xyz/config.yaml` for a particular institutional slurm compute cluster.
 
-We welcome pull requests for 3rd-party workflows you are working with to include such a profile! It may also be necessary to occasionally label certain rules of a particular workflow with the `localrules: <rule 1>, <rule 2>, ...` directive when workflow developers focused on server execution during development, e.g., plotting and download rules.
+It is also good practice to add clear documentation comments for each entry in a (workflow) profile.
+This should explain the respective entry, indicate what kind of values can be used and why a particular value or setting were chosen.
+To this end, it is often helpful to provide links to relevant documentation pages, either from snakemake, a snakemake plugin or a specific cluster environment.
+
+In general, we welcome pull requests for 3rd-party workflows you are working with to include such a profile for your specific compute environment.
