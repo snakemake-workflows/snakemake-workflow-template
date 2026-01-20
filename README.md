@@ -53,7 +53,7 @@ snakemake --cores 2 --sdm conda apptainer --directory .test
 
 ## Workflow profiles
 
-The `profiles/` directory can contain any number of [workflow specific profiles](https://snakemake.readthedocs.io/en/stable/executing/cli.html#profiles) that users can choose from.
+The `profiles/` directory can contain any number of [workflow-specific profiles](https://snakemake.readthedocs.io/en/stable/executing/cli.html#profiles) that users can choose from.
 The [profiles `README.md`](profiles/README.md) provides more details.
 
 ## Authors
