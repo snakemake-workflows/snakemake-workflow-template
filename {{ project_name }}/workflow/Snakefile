@@ -6,12 +6,11 @@
 
 # load configuration
 # -----------------------------------------------------
-# configfile: "config/config.yaml"
-
+configfile: "config/config.yaml"
 
 # load rules
 # -----------------------------------------------------
-include: "rules/common.smk"
+include: "rules/example.smk"
 
 
 # optional messages, log and error handling
@@ -19,10 +18,8 @@ include: "rules/common.smk"
 onstart:
     print("\n--- Analysis started ---\n")
 
-
 onsuccess:
     print("\n--- Workflow finished! ---\n")
-
 
 onerror:
     print("\n--- An error occurred! ---\n")
@@ -32,5 +29,5 @@ onerror:
 # -----------------------------------------------------
 rule all:
     input:
-        "results/multiqc/multiqc_report.html",
+        "results/output.txt"
     default_target: True

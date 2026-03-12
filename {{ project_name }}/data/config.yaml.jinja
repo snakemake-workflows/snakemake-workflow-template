@@ -1,0 +1,19 @@
+### GENERAL SNAKEMAKE SETTINGS
+
+# Tell snakemake which remote executor plugin to use, in our case the plugin
+# for the cluster system LSF, which is documented here:
+# https://snakemake.github.io/snakemake-plugin-catalog/plugins/executor/lsf.html
+# executor: "lsf"
+
+# Maximum number of cluster cores / cpus to schedule jobs for.
+#
+cores: { { max_cores } }
+
+# Always use conda environments for software deployment. Internally snakemake
+# implicitly uses mamba for speed (at the time of writing).
+software-deployment-method: { { sdm } }
+
+default-resources:
+  # The default amount of memory that is reserved for a rule, if the rule (and
+  # the snakemake command) don't specify anything else.
+  mem_mb: 4000

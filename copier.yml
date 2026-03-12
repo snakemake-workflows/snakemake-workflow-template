@@ -2,24 +2,45 @@ project_name:
   type: str
   help: What is your project name?
 
-scripts:
-  type:
-    help: What kind of scripts are you planning to use?
-    choices:
-      - notebooks
-      - R
-      - python
-    multiselect: true
+features:
+  type: str
+  help: Which of these features are you interested in?
+  choices:
+    - isolated conda environments
+    - Jupyter Notebook Integration
+    - Report Generation
+    - Schema Validation
 
-isolation:
-  type:
-    help: What container?
-    choices:
-      - pixi
-      - conda
-      - apptainer/singularity
+# plugins:
+#   type: str
+#   help: Which of these features are you interested in?
+#   choices:
+#     - Schema Validation
+#     - Jupyter Notebook Integration
+#     - Report Generation
+#     -
 
+# scripts:
+#   type:
+#   help: What kind of scripts are you planning to use?
+#   choices:
+#     - notebooks
+#     - R
+#     - python
+#   multiselect: true
 
-scripts:
-  type: boolean
-  help: Would you like to link this workflow to an ORCID ID?
+# isolation:
+#   type:
+#   help: What container?
+#   choices:
+#     - pixi
+#     - conda
+#     - apptainer/singularity
+
+# profiles:
+#   type: boolean
+#   help: Would you like to set up a default profile?
+
+# orcid:
+#   type: boolean
+#   help: Would you like to link this workflow to an ORCID ID?
