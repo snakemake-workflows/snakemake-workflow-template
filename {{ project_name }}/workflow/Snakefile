@@ -6,13 +6,12 @@
 
 # load configuration
 # -----------------------------------------------------
-configfile: "config/config.yaml"
+# configfile: "config/config.yaml"
 
 
 # load rules
 # -----------------------------------------------------
 include: "rules/common.smk"
-include: "rules/process_reads.smk"
 
 
 # optional messages, log and error handling

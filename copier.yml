@@ -1,0 +1,25 @@
+project_name:
+  type: str
+  help: What is your project name?
+
+scripts:
+  type:
+    help: What kind of scripts are you planning to use?
+    choices:
+      - notebooks
+      - R
+      - python
+    multiselect: true
+
+isolation:
+  type:
+    help: What container?
+    choices:
+      - pixi
+      - conda
+      - apptainer/singularity
+
+
+scripts:
+  type: boolean
+  help: Would you like to link this workflow to an ORCID ID?

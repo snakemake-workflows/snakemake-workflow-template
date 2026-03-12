@@ -1,10 +1,3 @@
-# ----------------------------------------------------- #
-# EXAMPLE WORKFLOW                                      #
-# ----------------------------------------------------- #
-
-
-# fetch genome sequence from NCBI
-# -----------------------------------------------------
 rule get_genome:
     output:
         fasta="results/get_genome/genome.fna",
