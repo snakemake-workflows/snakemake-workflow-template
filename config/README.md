@@ -22,17 +22,3 @@ The sample sheet has the following layout:
 | ------- | --------- | --------- | -------------------------- | -------------------------- |
 | sample1 | wild_type | 1         | sample1.bwa.read1.fastq.gz | sample1.bwa.read2.fastq.gz |
 | sample2 | wild_type | 2         | sample2.bwa.read1.fastq.gz | sample2.bwa.read2.fastq.gz |
-
-### Parameters
-
-This table lists all parameters that can be used to run the workflow.
-
-| parameter          | type | details                               | default                        |
-| ------------------ | ---- | ------------------------------------- | ------------------------------ |
-| **sample_sheet**    |      |                                       |                                |
-| path               | str  | path to sample sheet, mandatory        | "config/samples.tsv"           |
-| **get_genome**     |      |                                       |                                |
-| ncbi_ftp           | str  | link to a genome on NCBI's FTP server | link to _S. cerevisiae_ genome |
-| **simulate_reads** |      |                                       |                                |
-| read_length        | num  | length of target reads in bp          | 100                            |
-| read_number        | num  | number of total reads to be simulated | 10000                          |
