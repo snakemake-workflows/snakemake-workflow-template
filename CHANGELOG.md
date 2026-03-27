@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.3.0](https://github.com/snakemake-workflows/snakemake-workflow-template/compare/v1.2.0...v1.3.0) (2026-03-27)
+
+
+### Features
+
+* various changes to accomodate new wf catalog features ([7842e34](https://github.com/snakemake-workflows/snakemake-workflow-template/commit/7842e34fccfe36e9aae766e6ce1892f6ee2c6155))
+
+
+### Bug Fixes
+
+* license year, new rules ordering with snakefmt, wrapper updates ([20958fb](https://github.com/snakemake-workflows/snakemake-workflow-template/commit/20958fbf218257e68207c18ba28798ba6a9cd5ce))
+* update github CI workflows ([5835ce7](https://github.com/snakemake-workflows/snakemake-workflow-template/commit/5835ce7580e7c8a0b98f46f27d41094c692d9677))
+* updated schema so all wf params are rendered in catalog ([dbadc80](https://github.com/snakemake-workflows/snakemake-workflow-template/commit/dbadc80556dbc69cca53fd576067efe6a52ec89c))
+
 ## [1.2.0](https://github.com/snakemake-workflows/snakemake-workflow-template/compare/v1.1.0...v1.2.0) (2026-01-20)
 
 
