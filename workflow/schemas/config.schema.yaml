@@ -1,27 +1,36 @@
 $schema: "https://json-schema.org/draft/2020-12/schema"
+type: object
 description: main configuration schema for the workflow
 properties:
   sample_sheet:
     type: string
-    description: path to sample-sheet TSV file
+    description: path to sample sheet, mandatory
+    default: config/samples.tsv
 
   get_genome:
     type: object
     properties:
       ncbi_ftp:
         type: string
-        description: URL for genome retrieval
-    required: ["ncbi_ftp"]
+        description: URL for genome retrieval from NCBI FTP server
+        default: ""
+    required:
+      - ncbi_ftp
 
   simulate_reads:
     type: object
     properties:
       read_length:
-        type: number
+        type: integer
         description: length of target reads in bp
+        default: 100
       read_number:
-        type: number
+        type: integer
         description: number of total reads to be simulated
+        default: 10000
+    required:
+      - read_length
+      - read_number
 
 required:
   - sample_sheet

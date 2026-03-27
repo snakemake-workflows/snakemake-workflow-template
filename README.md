@@ -18,6 +18,7 @@ A Snakemake workflow for `<description>`
 ## Usage
 
 The usage of this workflow is described in the [Snakemake Workflow Catalog](https://snakemake.github.io/snakemake-workflow-catalog/docs/workflows/<owner>/<repo>).
+This includes a visualization of the workflow diagram and a table with all workflow parameters.
 
 Detailed information about input data and workflow configuration can also be found in the [`config/README.md`](config/README.md).
 
